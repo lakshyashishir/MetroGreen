@@ -33,8 +33,11 @@ export class HCSService {
         return {
             status: "success",
             timestamp: new Date(),
-            sequenceNumber: receipt.topicSequenceNumber.toString()
-        };
+            sequenceNumber: receipt.topicSequenceNumber
+              ? receipt.topicSequenceNumber.toString()
+              : "0",
+          };
+          
     }
 
     async logMetroRide(rideData: {

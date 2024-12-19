@@ -3,7 +3,7 @@ import { Train, Leaf, ArrowRight, QrCode } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Navbar } from '../page';
+import { Navbar } from "@/components/Navbar";
 
 const HowItWorks = () => (
   <div className="grid md:grid-cols-3 gap-6 my-12">

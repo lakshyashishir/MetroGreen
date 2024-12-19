@@ -14,7 +14,7 @@ import { useToast } from "@/hooks/use-toast";
 import { qrProcessor } from "@/lib/ticket/qr-processor";
 import type { SimpleMetroTicket } from "@/components/scan/delhi-metro-scanner";
 import type { TokenMintResult } from "@/lib/hedera/token-service";
-import { Navbar } from "../page";
+import { Navbar } from "@/components/Navbar";
 
 export default function ScanPage() {
   const { verifyTicket, addStation, isAdmin } = useContract();

@@ -11,7 +11,7 @@ import {
   Calendar 
 } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-import { Navbar } from "../page";
+import { Navbar } from "@/components/Navbar";
 
 const mockData = [
   { month: 'Jan', carbonSaved: 450, tokens: 45 },

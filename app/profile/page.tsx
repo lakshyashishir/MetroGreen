@@ -9,7 +9,7 @@ import {
   Copy,
   ChevronRight
 } from "lucide-react";
-import { Navbar } from "../page";
+import { Navbar } from "@/components/Navbar";
 
 export default function ProfilePage() {
   return (

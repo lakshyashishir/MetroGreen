@@ -7,7 +7,7 @@ import {
   ShoppingCart,
   ArrowRight
 } from "lucide-react";
-import { Navbar } from "../page";
+import { Navbar } from "@/components/Navbar";
 
 const merchants = [
   {
