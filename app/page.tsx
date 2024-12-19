@@ -29,7 +29,7 @@ const HeroSection = () => (
         </Button>
         <Button
           variant="outline"
-          className="font-mono text-white border-green-500 hover:bg-green-500/20"
+          className="bg-black/50 backdrop-blur-md font-mono text-white border-green-500 hover:bg-green-500/20"
         >
           Learn More <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
