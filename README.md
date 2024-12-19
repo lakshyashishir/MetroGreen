@@ -57,21 +57,12 @@ MetroGreen prioritizes user privacy and data security:
 
 ## 🤝 Partner Network
 
-We've partnered with various businesses across the metro network:
+We've will partner with various businesses across the metro network:
 
 - Coffee shops and restaurants
 - Convenience stores
 - Bookstores
 - Local retailers
-
-## 📊 Impact Statistics
-
-![Impact Stats](/api/placeholder/800/400)
-
-- **50,000+** Active Users
-- **120 Tons** CO₂ Saved
-- **₹2M+** Rewards Distributed
-- **200+** Partner Stores
 
 ## 💻 Technical Architecture
 
@@ -119,29 +110,8 @@ Our carbon savings are calculated using:
 - Public transit efficiency factors
 - Peak hour impact multipliers
 
-## 💬 Community & Support
-
-Join our community:
-- Discord: [MetroGreen Community]
-- Twitter: [@MetroGreen]
-- Email: support@metrogreen.com
-
 ## 📱 Get Started
 
 1. Open the MetroGreen Website
 3. Scan your first metro ticket QR code
 4. Start earning rewards
-
-[Download Now](#) | [Watch Demo](#)
-
----
-
-## Awards & Recognition
-
-- 🏆 Best Green Tech Innovation 2024
-- 🌱 Sustainable Transit Solution Award
-- ⭐ Top Climate Action Project
-
----
-
-Built with ❤️ by the MetroGreen Team
