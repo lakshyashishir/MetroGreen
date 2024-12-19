@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { tokenService } from '@/lib/hedera/token-service';
+import type { TokenMintResult } from '@/lib/hedera/token-service';
 
 export const useToken = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -9,8 +10,7 @@ export const useToken = () => {
         setIsLoading(true);
         setError(null);
         try {
-            const result = await tokenService.mintTokens(accountId, carbonGrams);
-            return result;
+            return await tokenService.mintTokens(accountId, carbonGrams);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Error minting tokens');
             throw err;
@@ -32,5 +32,15 @@ export const useToken = () => {
         }
     }, []);
 
-    return { mintTokens, checkBalance, isLoading, error };
+    const getHashScanUrl = useCallback((transactionId: string) => {
+        return tokenService.getHashScanUrl(transactionId);
+    }, []);
+
+    return { 
+        mintTokens, 
+        checkBalance, 
+        getHashScanUrl,
+        isLoading, 
+        error 
+    };
 };

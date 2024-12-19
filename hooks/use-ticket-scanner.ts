@@ -1,57 +1,27 @@
-"use client";
-
 import { useState } from 'react';
-import { recognizeText } from '@/lib/ocr/tesseract-worker';
-import { parseTicketText } from '@/lib/ocr/ticket-parser';
-import { preprocessImage } from '@/lib/ocr/image-processor';
+import { qrProcessor, QRTicketData } from '@/lib/ticket/qr-processor';
 
 interface TicketScannerResult {
   isProcessing: boolean;
   error: string | null;
-  processImage: (file: File) => Promise<void>;
-  processWebcamImage: (imageSrc: string) => Promise<void>;
-  ticketData: any | null;
+  processQRCode: (qrData: string) => Promise<void>;
+  ticketData: QRTicketData | null;
 }
 
 export function useTicketScanner(): TicketScannerResult {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [ticketData, setTicketData] = useState<any | null>(null);
+  const [ticketData, setTicketData] = useState<QRTicketData | null>(null);
 
-  const processImage = async (file: File) => {
+  const processQRCode = async (qrData: string) => {
     try {
       setIsProcessing(true);
       setError(null);
       
-      // Preprocess the image
-      const processedImage = await preprocessImage(file);
-      
-      // Perform OCR
-      const text = await recognizeText(processedImage);
-      
-      // Parse ticket data
-      const data = parseTicketText(text);
-      setTicketData(data);
+      const parsedData = qrProcessor.parseTicketData(qrData);
+      setTicketData(parsedData);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to process ticket');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  const processWebcamImage = async (imageSrc: string) => {
-    try {
-      setIsProcessing(true);
-      setError(null);
-      
-      // Perform OCR directly on webcam image
-      const text = await recognizeText(imageSrc);
-      
-      // Parse ticket data
-      const data = parseTicketText(text);
-      setTicketData(data);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to process ticket');
+      setError(err instanceof Error ? err.message : 'Failed to process QR code');
     } finally {
       setIsProcessing(false);
     }
@@ -60,8 +30,7 @@ export function useTicketScanner(): TicketScannerResult {
   return {
     isProcessing,
     error,
-    processImage,
-    processWebcamImage,
+    processQRCode,
     ticketData
   };
 }
