@@ -1,15 +1,17 @@
+"use client";
+
 import { Train, ArrowRight, Leaf } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { Wallet } from "lucide-react";
+import { useAccount } from "wagmi";
+import { useWeb3Modal } from "@web3modal/wagmi/react";
+
 export const Navbar = () => {
   const { address, isConnected } = useAccount();
-  const { connect, connectors } = useConnect();
-  const { disconnect } = useDisconnect();
+  const { open } = useWeb3Modal();
 
-  const formatAddress = (addr: string | any[] | undefined) => {
+  const formatAddress = (addr: string | undefined) => {
     if (!addr) return "";
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
@@ -37,18 +39,16 @@ export const Navbar = () => {
             </Link>
             {isConnected ? (
               <Button
-                onClick={() => disconnect()}
+                onClick={() => open()}
                 className="font-mono bg-green-500 hover:bg-green-600 flex items-center"
               >
-                <Wallet className="h-4 w-4 mr-2" />
                 {formatAddress(address)}
               </Button>
             ) : (
               <Button
-                onClick={() => connect({ connector: connectors[0] })}
+                onClick={() => open()}
                 className="font-mono bg-green-500 hover:bg-green-600 flex items-center"
               >
-                <Wallet className="h-4 w-4 mr-2" />
                 Connect Wallet
               </Button>
             )}

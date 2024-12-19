@@ -3,6 +3,11 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import WagmiProviderComp from '@/lib/wagmi/wagmi-provider';
+import { headers } from 'next/headers';
+import { cookieToInitialState } from 'wagmi';
+import {dynamic} from './config';
+import { config } from '@/lib/wagmi/config';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,18 +21,22 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const initialState = cookieToInitialState(config, headers().get('cookie'));
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+        <WagmiProviderComp initialState={initialState}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </WagmiProviderComp>
       </body>
     </html>
   );
