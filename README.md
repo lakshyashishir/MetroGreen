@@ -3,7 +3,10 @@
 
 MetroGreen is an innovative platform that rewards metro commuters for their eco-conscious travel choices. By choosing public transit, users earn tokens that can be redeemed for rewards while making a positive environmental impact.
 
-We got this idea, when we saw that DMRC (Delhi Metro Rail Corporation) was already showing total carbon savings for each passenger. And due to our experience with creating CarboCredit in last Hello Future hackathon, we came up with the idea of creating a platform that rewards commuters for their eco-conscious travel choices. This is the screenshot of the ticket which got us to this idea.
+We got this idea, when we saw that DMRC (Delhi Metro Rail Corporation) was already showing total carbon savings for each passenger. And due to our experience with creating CarboCredit in last Hello Future hackathon, we came up with the idea of creating a platform that rewards commuters for their eco-conscious travel choices. This is the screenshot of the ticket which got us to this idea. However, we are very beginners with hedera.
+![WhatsApp Image 2024-12-19 at 00 09 33_29ef4d67](https://github.com/user-attachments/assets/826b8383-7e8a-4d55-93dd-6dbde556fd30)
+
+
 
 ## 🌱 Our Mission
 
